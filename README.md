@@ -5,7 +5,7 @@ The code is provided without any warranty, any use of the compiled readkey or wr
 
 Please consult first the cryptsetup for your platform(OS flavor). Once successfully encrypted and tested using password following can be attempted at your ow risk.
 
-:readkey.c 
+:readkey.c
   Simple program to read from raw disk device in linux. Program will attempt to read bytes starting from the end of the device minus length of the default block size=512, minus keySize. The read bytes then will be printed to the "caller" i.e. the /boot/key/crypto-usb.sh script which is referenced in /etc/crypttab.
   To compile use: 
     gcc readkey.c -o readkey
