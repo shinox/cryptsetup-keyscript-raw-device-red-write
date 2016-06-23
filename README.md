@@ -14,7 +14,6 @@ After adding/modding "crypttab" it is necessary to update "initrd", usually by u
 ```bash
 sudo update-initramfs -u -k `uname -r`  
 ```
-<br />
 **::readkey.c**  <br />
 Simple program to read from raw disk device in linux. Program will attempt to read bytes starting from the end of the
 device minus length of the default block size=512, minus keySize. The read bytes then will be printed to the "caller"
