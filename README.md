@@ -17,17 +17,29 @@ Simple program to read from raw disk device in linux. Program will attempt to re
 device minus length of the default block size=512, minus keySize. The read bytes then will be printed to the "caller"
 i.e. the /boot/key/crypto-usb.sh script which is referenced in /etc/crypttab.  <br />
 To compile use:  <br />
+```bash
 gcc readkey.c -o readkey  <br />
+```
+
 How to use (please see /boot/key/crypto-usb.sh for sample usage):  <br />
-readkey "keysize"  <br />
+
+```bash
+readkey <keysize>  
+```
 
 ::writekey.c  <br />
 Simple program to write existing key information to the raw block device or to generate pseudo random bits and write these
 to the raw block device as well as to the .tmpckey file which can be then used directly in "cryptsetup".  <br />
 To compile use:  <br />
-gcc writekey.c -o writekey  <br />
+```bash
+gcc writekey.c -o writekey
+```
 To write existing key to device:  <br />
-writekey "/path/to/keyfile" "/path/to/removable/sd*"  <br />
+```bash
+writekey </path/to/keyfile> </path/to/removable/sd*>
+```
 To generate and write pseudo random key, key will be saved to temporary file ".tmpckey"  <br />
-writekey genwrite "/path/to/removable/sd*" "keysize in multiples of 512"  <br />
+```bash
+writekey genwrite </path/to/removable/sd*> <keysize in multiples of 512>
+```
 When keysize is not provided default size is set to 2048.  <br />
