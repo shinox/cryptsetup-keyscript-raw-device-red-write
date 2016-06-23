@@ -45,5 +45,5 @@ To generate and write pseudo random key, key will be saved to temporary file ".t
 ```bash
 writekey genwrite </path/to/removable/sd*> <keysize in multiples of 512>
 ```
-When keysize is not provided default size is set to 2048. It is necessary to move keyfile off-site to other secure location after tests proven successfull or deletion of the file  <br />
+When keysize is not provided default size of the key is set to 2048. It is necessary to move keyfile off-site to other secure location after tests proven successfull or deletion of the file  <br />
 
