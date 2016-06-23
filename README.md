@@ -13,7 +13,7 @@ sudo cd /boot && sudo cp -aRf initrd.img-`uname-r` initrd.img-`uname-r`.bak
 After adding/modding "crypttab" it is necessary to update "initrd", usually by using (on debian):  <br />
 
 ```bash
-update-initramfs -u -k `uname -r`  
+sudo update-initramfs -u -k `uname -r`  
 ```
 **::readkey.c**  <br />
 Simple program to read from raw disk device in linux. Program will attempt to read bytes starting from the end of the
