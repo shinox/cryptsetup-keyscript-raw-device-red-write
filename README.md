@@ -14,7 +14,6 @@ After adding/modding "crypttab" it is necessary to update "initrd", usually by u
 ```bash
 sudo update-initramfs -u -k `uname -r`  
 ```
-If something goes wrong and system refuses to boot restart and in Grub manu choose edit and add ".bak" at the end of "initrd..." file then F-10 (backup is important).  <br />
 <br />
 **::readkey.c**  <br />
 Simple program to read from raw disk device in linux. Program will attempt to read bytes starting from the end of the
