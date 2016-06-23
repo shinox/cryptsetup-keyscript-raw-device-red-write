@@ -12,7 +12,7 @@ After adding/modding "crypttab" it is necessary to update "initrd", usually by u
 ```bash
 update-initramfs -u -k `uname -r`  
 ```
-::readkey.c  <br />
+**::readkey.c**  <br />
 Simple program to read from raw disk device in linux. Program will attempt to read bytes starting from the end of the
 device minus length of the default block size=512, minus keySize. The read bytes then will be printed to the "caller"
 i.e. the /boot/key/crypto-usb.sh script which is referenced in /etc/crypttab.  <br />
@@ -27,7 +27,7 @@ How to use (please see /boot/key/crypto-usb.sh for sample usage):  <br />
 readkey <keysize>  
 ```
 
-::writekey.c  <br />
+**::writekey.c**  <br />
 Simple program to write existing key information to the raw block device or to generate pseudo random bits and write these
 to the raw block device as well as to the .tmpckey file which can be then used directly in "cryptsetup".  <br />
 To compile use:  <br />
