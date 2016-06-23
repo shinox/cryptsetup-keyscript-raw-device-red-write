@@ -21,15 +21,12 @@ device minus length of the default block size=512, minus keySize. The read bytes
 i.e. the /boot/key/crypto-usb.sh script which is referenced in /etc/crypttab.  <br />
 To compile use:  <br />
 ```bash
-gcc readkey.c -o readkey  <br />
+gcc readkey.c -o readkey
 ```
-
 How to use (please see /boot/key/crypto-usb.sh for sample usage):  <br />
-
 ```bash
 readkey <keysize>  
 ```
-
 **::writekey.c**  <br />
 Simple program to write existing key information to the raw block device or to generate pseudo random bits and write these
 to the raw block device as well as to the .tmpckey file which can be then used directly in "cryptsetup".  <br />
