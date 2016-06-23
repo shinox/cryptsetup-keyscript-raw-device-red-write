@@ -5,8 +5,11 @@ Cryptsetup provides tons of option in creating the "keyfile" and use it in own e
 The code is provided without any warranty, any use of the compiled "readkey" or "writekey" is strictly on your own risk !!!
 The code quality also may press some doubts hence inspection before "compile and use" is strictly adviced.
 
-Please consult first the cryptsetup for your platform(OS flavor). Once successfully encrypted and tested using password following can be attempted at your ow risk (again).
-Also to note before adding and editing "crypttab" copy your initrd.img-`uname-r` to initrd.img-`uname-r`.bak, this way if anything goes wrong you can always use ".bak" initrd file during boot to get to the system and correct mistakes.
+Please consult first the cryptsetup for your platform(OS flavor). Once successfully encrypted and tested using password the following can be attempted at your ow risk (again).
+**Also to note before adding and editing "crypttab" copy your system "initrd.img" to "initrd.img.bak", this way if anything goes wrong you can always use ".bak" initrd file during boot to get to the system and correct mistakes:
+```bash
+sudo cd /boot && cp -aRf initrd.img-`uname-r` initrd.img-`uname-r`.bak
+```
 After adding/modding "crypttab" it is necessary to update "initrd", usually by using (on debian):  <br />
 
 ```bash
@@ -38,7 +41,7 @@ To write existing key to device:  <br />
 ```bash
 writekey </path/to/keyfile> </path/to/removable/sd*>
 ```
-To generate and write pseudo random key, key will be saved to temporary file ".tmpckey"  <br />
+To generate and write pseudo random key, key will be saved to temporary file ".tmpckey". Permissions to file will be set as 0600  <br />
 ```bash
 writekey genwrite </path/to/removable/sd*> <keysize in multiples of 512>
 ```
