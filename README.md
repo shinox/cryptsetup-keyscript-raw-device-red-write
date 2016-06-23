@@ -8,7 +8,7 @@ The code quality also may press some doubts hence inspection before "compile and
 Please consult first the cryptsetup for your platform(OS flavor). Once successfully encrypted and tested using password the following can be attempted at your ow risk (again).
 **Also to note before adding and editing "crypttab" copy your system "initrd.img" to "initrd.img.bak", this way if anything goes wrong you can always use ".bak" initrd file during boot to get to the system and correct mistakes:
 ```bash
-sudo cd /boot && cp -aRf initrd.img-`uname-r` initrd.img-`uname-r`.bak
+sudo cd /boot && sudo cp -aRf initrd.img-`uname-r` initrd.img-`uname-r`.bak
 ```
 After adding/modding "crypttab" it is necessary to update "initrd", usually by using (on debian):  <br />
 
