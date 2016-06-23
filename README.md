@@ -9,7 +9,7 @@ Please consult first the cryptsetup for your platform(OS flavor). Once successfu
 Simple program to read from raw disk device in linux. Program will attempt to read bytes starting from the end of the
 device minus length of the default block size=512, minus keySize. The read bytes then will be printed to the "caller"
 i.e. the /boot/key/crypto-usb.sh script which is referenced in /etc/crypttab.  <br />
-To compile use:  <br />
+To compile use: <br />
 gcc readkey.c -o readkey  <br />
 To use (please see /boot/key/crypto-usb.sh for sample usage):  <br />
 readkey "keysize"  <br />
