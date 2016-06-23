@@ -7,11 +7,11 @@ Please consult first the cryptsetup for your platform(OS flavor). Once successfu
 
 ::readkey.c  <br />
     Simple program to read from raw disk device in linux. Program will attempt to read bytes starting from the end of the device minus length of the default block size=512, minus keySize. The read bytes then will be printed to the "caller"
-    i.e. the /boot/key/crypto-usb.sh script which is referenced in /etc/crypttab.<br />
+    i.e. the /boot/key/crypto-usb.sh script which is referenced in /etc/crypttab.  <br />
     To compile use:  <br />
     gcc readkey.c -o readkey  <br />
     To use (please see /boot/key/crypto-usb.sh for sample usage):  <br />
-    readkey "keysize"
+    readkey "keysize"  <br />
     
 ::writekey.c  <br />
     Simple program to write existing key information to the raw block device or to generate pseudo random bits and write these to the raw block device as well as to the .tmpckey file which can be then used directly in "cryptsetup".  <br />
