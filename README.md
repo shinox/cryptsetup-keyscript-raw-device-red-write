@@ -10,13 +10,13 @@ Please consult first the cryptsetup for your platform(OS flavor). Once successfu
     To compile use: <br />
       gcc readkey.c -o readkey <br />
     To use (please see /boot/key/crypto-usb.sh for sample usage):<br />
-      readkey <keysize>
+      readkey "<keysize>"
     
 :writekey.c <br />
     Simple program to write existing key information to the raw block device or to generate pseudo random bits and write these to the raw block device as well as to the .tmpckey file which can be then used directly in "cryptsetup". <br />
     To write existing key to device: <br />                                            
-      writekey </path/to/keyfile> </path/to/removable/sd*>   <br />                 
+      writekey "</path/to/keyfile>" "</path/to/removable/sd*>"   <br />                 
     To generate and write pseudo random key, key will be saved to temporary file .tmpckey  <br />
-      writekey genwrite </path/to/removable/sd*> <keysize in multiples of 512>  <br />
+      writekey genwrite "</path/to/removable/sd*>" "<keysize in multiples of 512>"  <br />
     When keysize is not provided default size is set to 2048. <br />            
     
