@@ -1,5 +1,5 @@
 # cryptsetup-keyscript-raw-device-red-write
-Cryptsetup suporting additional scripts allowing to create or write key into raw removable disk and use it later in crypttab with custom "keyscript=" option.
+Cryptsetup suporting additional scripts allowing to create or write key into raw removable disk and use it later in crypttab with custom "keyscript=" option.::
 
 The code is provided without any warranty, any use of the compiled readkey or writekey is strictly on your own risk !!!
 
