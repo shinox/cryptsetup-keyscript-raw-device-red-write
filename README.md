@@ -6,7 +6,7 @@ The code is provided without any warranty, any use of the compiled "readkey" or 
 The code quality also may press some doubts hence inspection before "compile and use" is strictly adviced.
 
 Please consult first the cryptsetup manual and create encrypted partition for your platform(OS flavor). Once successfully encrypted and tested using password the following can be attempted at your ow risk (again).
-**__Also to note before adding and editing "crypttab" copy your system "initrd.img" to "initrd.img.bak", this way if anything goes wrong you can always use ".bak" initrd file during boot to get to the system and correct mistakes__**:
+__**Also to note before adding and editing "crypttab" copy your system "initrd.img" to "initrd.img.bak", this way if anything goes wrong you can always use ".bak" initrd file during boot to get to the system and correct mistakes**__:
 ```bash
 sudo cp -aRf /boot/initrd.img-`uname-r` /boot/initrd.img-`uname-r`.bak
 ```
