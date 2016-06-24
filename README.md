@@ -50,7 +50,7 @@ To verify both written and stored keys are the same "diff" can be used:
 ```bash
 diff -B <(./readkey </path/to/device> 4096) <(cat .tmpckey)
 ```
-Or for existing key which have bin written:
+Or for existing key which have bin written to the raw device:
 ```bash
 diff -B <(./readkey </path/to/device> <written keysize>) <(cat /path/to/keyfile)
 ```
