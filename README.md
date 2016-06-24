@@ -46,7 +46,7 @@ To generate and write pseudo random key, key will be saved to temporary file ".t
 writekey genwrite </path/to/removable/sd*> <keysize in multiples of 512>
 ```
 When keysize is not provided default size of the key is set to 2048. It is necessary to move keyfile off-site to other secure location after tests proven successfull or deletion of the file  <br />
-To verify both written and stored keys are the same "diff" can be used:
+To verify both written and stored keys are the same "diff" can be used. Diff will print no output if content is identical:
 ```bash
 diff -B <(./readkey </path/to/device> 4096) <(cat .tmpckey)
 ```
