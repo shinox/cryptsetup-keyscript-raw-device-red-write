@@ -54,9 +54,9 @@ Or for existing key which have bin written to the raw device:
 ```bash
 diff -B <(./readkey </path/to/device> <written keysize>) <(cat /path/to/keyfile)
 ```
-To do:
-1.) Provide means of using it directly in crypttab as "luks,keyscript=readkey dev keysize"
-2.) Auto select removable device in readkey.c based on disk ID.
-3.) Auto encrypt key before write using Disk ID.
-4.) Integrate with "cryptsetup" as an option into "crypttab" ("luks,usbdev:id=<key size>" or similar approach).
+To do:  
+  1.) Provide means of using it directly in crypttab as "luks,keyscript=readkey dev keysize"  
+  2.) Auto select removable device in readkey.c based on disk ID.  
+  3.) Auto encrypt key before write using Disk ID.  
+  4.) Integrate with "cryptsetup" as an option into "crypttab" ("luks,usbdev:id=<key size>" or similar approach).  
 
