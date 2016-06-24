@@ -83,3 +83,4 @@ void main(int argc, char *argv[])
 	memset(block, 0, keySize);
 	free(block);
 }
+
