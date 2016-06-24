@@ -12,10 +12,6 @@ int main(int argc, char *argv[])
 	unsigned char *block;
         
 	/*
-	    Preparation for reading and writing the existing key to buffer
-	    Need to implement support for reading and writing as well as generating the propper key !!!
-	*/
-	/*
 	    Thing to always remember that argv starts from 0 - the name of the program, and argc starts from 1 i.e. 1 is the name of the program.
 	*/
 	if ( argc == 3 
@@ -38,7 +34,11 @@ int main(int argc, char *argv[])
                 for(count = 0; count < keySize/*sizeof(block)*/; count++){
 			char ch = fgetc(keyF);
                         block[count] = ch;
-		        printf("%c",ch);
+			/*
+			  Uncomment below to see your key on screen
+			*/
+			// printf("%c",ch);
+			
                 }
 		printf("\n-- End Key --:\n");
 		fclose(keyF);
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 		&& (sizeof(argv[2]) / sizeof(char)) > 2
 		) 
 		{
-		printf("\n-- Attempting to create random key(ish --) of size: \n", keySize);
+		printf("\n-- Attempting to create random key(ish --) of size: %d\n", keySize);
 		block = calloc(keySize, sizeof(char));
 		int count;
 		for(count = 0; count < keySize/*sizeof(block)*/; count++){
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
 		) 
 		{
 		keySize = atoi(argv[3]);
-		printf("\n-- Attempting to create random key(ish --) of size: \n", keySize);
+		printf("\n-- Attempting to create random key(ish --) of size: %d\n", keySize);
 		block = calloc(keySize, sizeof(char));
 		int count;
 		for(count = 0; count < keySize/*sizeof(block)*/; count++){
@@ -103,13 +103,17 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 	
+	/*
+	    Some printf debugging below, uncomment when needed to see what is going on.
+	*/
+	/*
 	printf("\nNumber of Args: %d\n", argc);
 	printf("\nCurrently block array contains: \n");
-	for(count = 0; count < keySize/*sizeof(block)*/; count++){
+	for(count = 0; count < keySize; count++){
 		printf("%c", block[count]);
 	}
 	printf("\n-- End block -- \n");
-
+	*/
 	/* Open Device itp... */
 	FILE *device = fopen(argv[2], "a");
 	if(device == NULL) exit(EXIT_FAILURE);
@@ -133,9 +137,9 @@ int main(int argc, char *argv[])
 
 
 	/* Make sure we start again */
-	rewind(device); // Do I need it ???
+	rewind(device);
 
-	/* Get the required amount minus block size */
+	/* Get the required amount sunbstracting block size */
 	long startFrom = endOfDisk - blockSize - keySize;
 
 	/* Write some data to the disk */
@@ -143,27 +147,33 @@ int main(int argc, char *argv[])
 	fseek(device, startFrom, SEEK_SET);
 	fwrite(block, 1, keySize, device);
 	printf("\nBlock Position after data write procedure : %ld\n", ftell(device));
+
+	/*
+		Below is just for convenience, to read what was written,
+		can aid in debugging hence left commented for later.
+	*/
+	/*
 	printf("\nAmount of Data written : %ld\n", ftell(device) - startFrom);
 
-	/* Start reading from specified block */
+	// Start reading from specified block 
 	printf("\n>>>>>>>> DEBUGGING SECTION <<<<<<<<<\n");
-	/* Start reading from specified block */
-	rewind(device); // Do I need it ???
+	rewind(device); //
 	fseek(device, startFrom, SEEK_SET);
 	printf("\nBlock Position before read attempted: %d\n", ftell(device));
 	printf("\nKey size: %d\n", keySize);
 	fread(block, 1, keySize, device);
 
-	/* Do something with the data */
+	// Do something with the data
 	printf("\nBlock Position startFrom: %ld\n", startFrom);
 	printf("\nBlock Position after read: %d\n", ftell(device));
 	printf("\n-- Buffer Read: --\n");
-	for(count = 0; count < keySize/*sizeof(block)*/; count++){
+	for(count = 0; count < keySize; count++){
 		printf("%c", block[count]);
 	}
 	printf("\n-- End block -- \n");
 	printf("\n--  -- \n");
 	printf("\n--  -- \n");
+	*/
 
 	/* Close file */
 	fclose(device);
@@ -172,7 +182,6 @@ int main(int argc, char *argv[])
 	memset(block, 0, keySize);
 	free(block);
 
-/* Return success, might change it to be useful return not place holder. */
+/* Return success, might change it to be useful return not place holder */
 return 0;
 }
-
