@@ -24,7 +24,11 @@ gcc readkey.c -o readkey
 ```
 How to use (please see /boot/key/crypto-usb.sh for sample usage):  <br />
 ```bash
-readkey <keysize>  
+readkey </path/to/device> <keysize>
+```
+Or for default keysize 2048
+```bash
+readkey </path/to/device>
 ```
 **::writekey.c**  <br />
 Simple program to write existing key information to the raw block device or to generate pseudo random bits and write these
