@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
 	printf("\n-- End block -- \n");
 	*/
 	/* Open Device itp... */
-	FILE *device = fopen(argv[2], "a");
+	FILE *device = fopen(argv[2], "w");
 	if(device == NULL) exit(EXIT_FAILURE);
 
 	printf("\nDevice to write: %s\n", argv[2]);
